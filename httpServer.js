@@ -16,6 +16,13 @@ server.listen(3000,function(){
 });
 
 function handle(request,response){
+    if(request.method=="POST"){
+        request.on("end",function(){
+            console.log("request end");
+        });
+        response.write("this is post");
+        response.end();
+    }
     var callback=function(err,data)
     {
         if(err)
